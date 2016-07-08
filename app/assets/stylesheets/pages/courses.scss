@@ -65,6 +65,13 @@
   height: 280px;
 }
 
+.op-redes {
+    opacity: 0.5;
+    &:hover {
+      opacity: 1;
+    }
+}
+
 .text-primary {
   color: #f9a91a !important;  
 }
