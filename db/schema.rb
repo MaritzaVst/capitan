@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160705210254) do
+ActiveRecord::Schema.define(version: 20160707180037) do
 
   create_table "answers", force: :cascade do |t|
     t.integer  "page_id",    limit: 4
@@ -173,6 +173,7 @@ ActiveRecord::Schema.define(version: 20160705210254) do
     t.integer  "deleted_comments_count",     limit: 4,     default: 0
     t.string   "solution_visibility",        limit: 255
     t.integer  "lesson_id",                  limit: 4
+    t.string   "material_type",              limit: 255
   end
 
   add_index "pages", ["lesson_id"], name: "index_pages_on_lesson_id", using: :btree
@@ -197,6 +198,15 @@ ActiveRecord::Schema.define(version: 20160705210254) do
     t.text     "description", limit: 65535
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+  end
+
+  create_table "topics", force: :cascade do |t|
+    t.string   "title",      limit: 255
+    t.string   "type",       limit: 255
+    t.integer  "points",     limit: 4
+    t.integer  "sequence",   limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "tracks", force: :cascade do |t|
